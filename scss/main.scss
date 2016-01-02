@@ -5,9 +5,17 @@ html, body {
 	padding: 0px;
 	height: 100%;
 }
-
 body {
 	color: #000;
 	background: #fff;
 	font-family: Montserrat, Sans-Serif;
+}
+a:not([class]) {
+	color: #222;
+	text-decoration: underline;
+
+	&:hover {
+		color: #000;
+		text-decoration: none;
+	}
 }
