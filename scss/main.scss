@@ -54,6 +54,9 @@ nav {
 		height: 100%;
 		margin: 0px;
 		padding: 0px;
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
 		border-left: solid 1px #ddd;
 		border-right: solid 1px #ddd;
 
@@ -67,6 +70,14 @@ nav {
 		&:last-of-type {
 			border-right: solid 2px #ddd;
 		}
+
+		& svg {
+			width: 60%;
+			height: 60%;
+			margin: 0px;
+			padding: 0px;
+			fill: #000;
+		}
 	}
 }
 
@@ -74,7 +85,7 @@ main {
 	width: 100%;
 	height: calc(100vh - 100px);
 	margin: 0px;
-	padding: 0px;
+	padding: 50px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -98,6 +109,9 @@ div.tools {
 		height: 100%;
 		margin: 0px;
 		padding: 0px;
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
 		border-left: solid 1px #ddd;
 		border-right: solid 1px #ddd;
 
@@ -110,6 +124,14 @@ div.tools {
 		}
 		&:last-of-type {
 			border-right: solid 2px #ddd;
+		}
+
+		& svg {
+			width: 60%;
+			height: 60%;
+			margin: 0px;
+			padding: 0px;
+			fill: #000;
 		}
 	}
 }
