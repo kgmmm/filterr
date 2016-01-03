@@ -7,12 +7,17 @@
 	<link rel="stylesheet" href="../css/main.css">
  </head>
  <body>
-  <div class="svgload" style="display: none;"></div>
+  <div class="svgload" style="display: none; height: 0px;"></div>
+  <div class="loader hide"><div class="one"><div class="center"></div></div></div>
   <nav>
-   <a href="" title="Home" class="btn"><svg><use xlink:href="#homeico" /></svg></a>
-   <a href="" title="Load Image" class="btn"><svg><use xlink:href="#imgico" /></svg></a>
+   <a href=".." title="Home" class="btn"><svg><use xlink:href="#homeico" /></svg></a>
+   <form action="#" onsubmit="return false;">
+    <input type="file" class="loadimg" />
+    <input type="submit" value="Load Image" class="submitload" />
+   </form>
   </nav>
 
+  <canvas class="imgcanv"></canvas>
   <main>
    <h1>This web-app uses experimental browser technology.</h1>
    <h2>Make sure you have the latest version of your browser.</h2>
