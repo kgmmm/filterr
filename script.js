@@ -1,5 +1,22 @@
 $(function() {
+	var resizeEvt;
+
 	$('.svgload').load('../svg/svgdefs.html');
+
+	$(window).on("resize", function() {
+		clearTimeout(resizeEvt);
+		resizeEvt = setTimeout(function() {
+			if($('main').hasClass('hasimg')) {
+				$('.imgcanv')[0].width = window.innerWidth;
+				$('.imgcanv')[0].height = window.innerHeight - 150;
+
+				loadImg();
+			} else {
+				$('.imgcanv')[0].width = window.innerWidth;
+				$('.imgcanv')[0].height = window.innerHeight - 150;
+			}
+		}, 250);
+	});
 
 	$('.imgcanv')[0].width = window.innerWidth;
 	$('.imgcanv')[0].height = window.innerHeight - 150;
@@ -49,7 +66,7 @@ function loadImg() {
 			canvHeight = canvas.height;
 
 		if(imgWidth > imgHeight) {
-			var newHeight = imgHeight / canvHeight * 100;
+			var newHeight = imgWidth / canvWidth * 100;
 
 			if(newHeight <= 100) {
 				$('main').addClass('hasimg');
@@ -60,8 +77,8 @@ function loadImg() {
 					imgWidth - 40, imgHeight - 40);
 				$('.loader').toggleClass('hide');
 			} else {
-				var percent = newHeight - 100,
-					drawHeight = imgHeight - imgHeight / 100 * percent;
+				var factor = newHeight / 100,
+					drawHeight = imgHeight / factor;
 
 				$('main').addClass('hasimg');
 				context.clearRect(0, 0, canvWidth, canvHeight);
