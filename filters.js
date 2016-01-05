@@ -1,12 +1,12 @@
 var filters = {
-		blur: [0, 100, 0],
-		brightness: [0, 100, 100],
-		contrast: [0, 100, 100],
+		blur: [0, 50, 0],
+		brightness: [0, 200, 100],
+		contrast: [0, 200, 100],
 		grayscale: [0, 100, 0],
 		hueRotate: [0, 360, 0],
 		invert: [0, 100, 0],
-		opacity: [0, 1, 100],
-		saturate: [0, 100, 100],
+		opacity: [0, 100, 100],
+		saturate: [0, 200, 100],
 		sepia: [0, 100, 0]
 	},
 	canvas = $('.imgcanv'),
