@@ -40,10 +40,13 @@ function loadImg() {
 
 	if(!input) {
 		alert('No file!');
+		$('.loader').toggleClass('hide');
 	} else if(!input.files) {
 		alert('Browser does not support "files" property of file inputs.');
+		$('.loader').toggleClass('hide');
 	} else if(!input.files[0]) {
 		alert('Please select a file first!');
+		$('.loader').toggleClass('hide');
 	} else {
 		file = input.files[0];
 		fr = new FileReader();
@@ -114,3 +117,7 @@ function loadImg() {
 		}
 	}
 }
+
+//@prepros-append filters.js
+
+

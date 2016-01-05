@@ -262,6 +262,7 @@ div.tools {
 		align-items: center;
 		border-left: solid 1px #ddd;
 		border-right: solid 1px #ddd;
+		cursor: pointer;
 
 		&:hover {
 			background: rgba(0, 0, 0, 0.05);
@@ -272,6 +273,14 @@ div.tools {
 		}
 		&:last-of-type {
 			border-right: solid 2px #ddd;
+		}
+
+		&.active {
+			background: rgba(0, 0, 0, 0.1);
+
+			&:hover {
+				background: rgba(0, 0, 0, 0.05);
+			}
 		}
 
 		& svg {
@@ -299,7 +308,7 @@ div.controls {
 	background: #fff;
 	border-top: solid 2px #ddd;
 
-	& a.reset {
+	& a {
 		width: 50px;
 		height: 100%;
 		margin: 0px;
@@ -307,10 +316,17 @@ div.controls {
 		display: inline-flex;
 		justify-content: center;
 		align-items: center;
-		border-left: solid 2px #ddd;
+		cursor: pointer;
 
 		&:hover {
 			background: rgba(0, 0, 0, 0.05);
+		}
+
+		&:first-of-type {
+			border-right: solid 2px #ddd;
+		}
+		&:last-of-type {
+			border-left: solid 2px #ddd;
 		}
 
 		& svg {

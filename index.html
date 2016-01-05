@@ -24,19 +24,26 @@
   </main>
 
   <div class="controls">
-   <input type="range" min="0" max="100" value="0" class="slider" />
-   <a href="" class="reset"><svg><use xlink:href="#xico" /></svg></a>
+   <a onclick="resetAll();" title="Reset All" class="resetall"><svg><use xlink:href="#resetico" /></svg></a>
+   <input type="range" min="0" max="100" class="slider" />
+   <a onclick="resetCurrent($('.slider').attr('data-currentfilter'));" title="Remove Active Filter" class="resetcurrent"><svg><use xlink:href="#xico" /></svg></a>
   </div>
 
   <div class="tools">
-   <a href="" class="tool"><svg><use xlink:href="#contrastico" /></svg></a>
-   <a href="" class="tool"><svg><use xlink:href="#brightnessico" /></svg></a>
-   <a href="" class="tool"><svg><use xlink:href="#blurico" /></svg></a>
+   <a class="tool"><svg><use xlink:href="#saveico" /></svg></a>
+   <a onclick="setCurrent('blur');" title="Blur" class="tool"><svg><use xlink:href="#blurico" /></svg></a>
+   <a onclick="setCurrent('brightness');" title="Brightness" class="tool"><svg><use xlink:href="#brightnessico" /></svg></a>
+   <a onclick="setCurrent('contrast');" title="Contrast" class="tool"><svg><use xlink:href="#contrastico" /></svg></a>
+   <a onclick="setCurrent('grayscale')" title="Grayscale" class="tool"><svg><use xlink:href="#grayscaleico" /></svg></a>
+   <a onclick="setCurrent('hueRotate')" title="Hue-Rotate" class="tool"><svg><use xlink:href="#huerotateico" /></svg></a>
+   <a onclick="setCurrent('invert')" title="Invert" class="tool"><svg><use xlink:href="#invertico" /></svg></a>
+   <a onclick="setCurrent('opacity')" title="Opacity" class="tool"><svg><use xlink:href="#opacityico" /></svg></a>
+   <a onclick="setCurrent('saturate')" title="Saturate" class="tool"><svg><use xlink:href="#saturateico" /></svg></a>
+   <a onclick="setCurrent('sepia')" title="Sepia" class="tool"><svg><use xlink:href="#sepiaico" /></svg></a>
   </div>
 
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="../script.min.js"></script>
-  <script src="../filters.min.js"></script>
  </body>
 </html>
