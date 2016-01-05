@@ -58,6 +58,7 @@ function loadImg() {
 		img = new Image();
 		img.onload = imgLoaded;
 		img.src = fr.result;
+		resetAll();
 	}
 
 	function imgLoaded() {
@@ -119,5 +120,4 @@ function loadImg() {
 }
 
 //@prepros-append filters.js
-
 

@@ -265,21 +265,18 @@ div.tools {
 		cursor: pointer;
 
 		&:hover {
-			background: rgba(0, 0, 0, 0.05);
+			background: rgba(0, 0, 0, 0.1);
 		}
 
-		&:first-of-type {
-			border-left: solid 2px #ddd;
-		}
 		&:last-of-type {
 			border-right: solid 2px #ddd;
 		}
 
 		&.active {
-			background: rgba(0, 0, 0, 0.1);
+			background: rgba(0, 0, 0, 0.15);
 
 			&:hover {
-				background: rgba(0, 0, 0, 0.05);
+				background: rgba(0, 0, 0, 0.1);
 			}
 		}
 
@@ -319,7 +316,7 @@ div.controls {
 		cursor: pointer;
 
 		&:hover {
-			background: rgba(0, 0, 0, 0.05);
+			background: rgba(0, 0, 0, 0.1);
 		}
 
 		&:first-of-type {

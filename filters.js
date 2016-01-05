@@ -1,22 +1,18 @@
 var filters = {
-		blur: [0, 50, 0],
 		brightness: [0, 200, 100],
 		contrast: [0, 200, 100],
 		grayscale: [0, 100, 0],
 		hueRotate: [0, 360, 0],
 		invert: [0, 100, 0],
-		opacity: [0, 100, 100],
 		saturate: [0, 200, 100],
 		sepia: [0, 100, 0]
 	},
 	defaults = {
-		blur: 0,
 		brightness: 100,
 		contrast: 100,
 		grayscale: 0,
 		hueRotate: 0,
 		invert: 0,
-		opacity: 100,
 		saturate: 100,
 		sepia: 0
 	},
@@ -49,15 +45,13 @@ function resetAll() {
 	var currentFilter = slider.attr('data-currentfilter');
 
 	if(typeof currentFilter !== 'undefined' || currentFilter === null) {
-		window.filters.blur[2] = 0;
-		window.filters.brightness[2] = 100;
-		window.filters.contrast[2] = 100;
-		window.filters.grayscale[2] = 0;
-		window.filters.hueRotate[2] = 0;
-		window.filters.invert[2] = 0;
-		window.filters.opacity[2] = 100;
-		window.filters.saturate[2] = 100;
-		window.filters.sepia[2] = 0;
+		window.filters.brightness[2] = window.defaults.brightness;
+		window.filters.contrast[2] = window.defaults.contrast;
+		window.filters.grayscale[2] = window.defaults.grayscale;
+		window.filters.hueRotate[2] = window.defaults.hueRotate;
+		window.filters.invert[2] = window.defaults.invert;
+		window.filters.saturate[2] = window.defaults.saturate;
+		window.filters.sepia[2] = window.defaults.sepia;
 		applyFilter();
 		setCurrent(currentFilter);	
 	} else {
@@ -95,24 +89,21 @@ function setCurrent(filter) {
 function applyFilter() {
 	canvas.css({
 		'filter' :
-			' blur(' + window.filters.blur[2] + 'px)' +
 			' brightness(' + window.filters.brightness[2] + '%)' +
 			' contrast(' + window.filters.contrast[2] + '%)' +
 			' grayscale(' + window.filters.grayscale[2] + '%)' +
 			' hue-rotate(' + window.filters.hueRotate[2] + 'deg)' +
 			' invert(' + window.filters.invert[2] + '%)' +
-			' opacity(' + window.filters.opacity[2] + '%)' +
 			' saturate(' + window.filters.saturate[2] + '%)' +
 			' sepia(' + window.filters.sepia[2] + '%)',
 		'-webkit-filter' :
-			' blur(' + window.filters.blur[2] + 'px)' +
 			' brightness(' + window.filters.brightness[2] + '%)' +
 			' contrast(' + window.filters.contrast[2] + '%)' +
 			' grayscale(' + window.filters.grayscale[2] + '%)' +
 			' hue-rotate(' + window.filters.hueRotate[2] + 'deg)' +
 			' invert(' + window.filters.invert[2] + '%)' +
-			' opacity(' + window.filters.opacity[2] + '%)' +
 			' saturate(' + window.filters.saturate[2] + '%)' +
 			' sepia(' + window.filters.sepia[2] + '%)'
 	});
+
 }

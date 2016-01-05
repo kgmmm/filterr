@@ -17,7 +17,7 @@
    </form>
   </nav>
 
-  <canvas class="imgcanv"></canvas>
+  <canvas class="imgcanv" id="imgcanv"></canvas>
   <main>
    <h1>This web-app uses experimental browser technology.</h1>
    <h2>Make sure you have the latest version of your browser.</h2>
@@ -30,14 +30,11 @@
   </div>
 
   <div class="tools">
-   <a class="tool"><svg><use xlink:href="#saveico" /></svg></a>
-   <a onclick="setCurrent('blur');" title="Blur" class="tool"><svg><use xlink:href="#blurico" /></svg></a>
    <a onclick="setCurrent('brightness');" title="Brightness" class="tool"><svg><use xlink:href="#brightnessico" /></svg></a>
    <a onclick="setCurrent('contrast');" title="Contrast" class="tool"><svg><use xlink:href="#contrastico" /></svg></a>
    <a onclick="setCurrent('grayscale')" title="Grayscale" class="tool"><svg><use xlink:href="#grayscaleico" /></svg></a>
    <a onclick="setCurrent('hueRotate')" title="Hue-Rotate" class="tool"><svg><use xlink:href="#huerotateico" /></svg></a>
    <a onclick="setCurrent('invert')" title="Invert" class="tool"><svg><use xlink:href="#invertico" /></svg></a>
-   <a onclick="setCurrent('opacity')" title="Opacity" class="tool"><svg><use xlink:href="#opacityico" /></svg></a>
    <a onclick="setCurrent('saturate')" title="Saturate" class="tool"><svg><use xlink:href="#saturateico" /></svg></a>
    <a onclick="setCurrent('sepia')" title="Sepia" class="tool"><svg><use xlink:href="#sepiaico" /></svg></a>
   </div>
