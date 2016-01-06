@@ -1,7 +1,7 @@
 $(function() {
 	var resizeEvt;
 
-	$('.svgload').load('../svg/svgdefs.html');
+	$('.svgload').load('ssvg/svgdefs.html');
 
 	$(window).on("resize", function() {
 		clearTimeout(resizeEvt);
@@ -21,7 +21,7 @@ $(function() {
 	$('.imgcanv')[0].width = window.innerWidth;
 	$('.imgcanv')[0].height = window.innerHeight - 150;
 
-	$('submit.submitload').on('click', loadImg);
+	$('.submitload').on('click', loadImg);
 });
 
 function loadImg() {
