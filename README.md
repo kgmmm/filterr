@@ -1,5 +1,5 @@
 # filterr
-Image filtering with pure CSS3 filters.
+Image filtering with pure CSS. Simple CSS experiment built to give me, a lazy designer/dev, the initiative to learn Git and Github. Also this was fun to make, and we like fun.
 
 List of CSS3 filters:
 
@@ -16,3 +16,5 @@ List of CSS3 filters:
 	filter: saturate(100%); 0min 200max
 	
 	filter: sepia(0%); 0min 100max
+	
+Blur and opacity filters omitted. Blur can get choppy, and opacity didn't really seem that useful so both filters were omitted.
