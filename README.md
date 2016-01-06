@@ -16,5 +16,3 @@ List of CSS3 filters:
 	filter: saturate(100%); 0min 200max
 	
 	filter: sepia(0%); 0min 100max
-
-WIP
