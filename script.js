@@ -1,7 +1,7 @@
 $(function() {
 	var resizeEvt;
 
-	$('.svgload').load('ssvg/svgdefs.html');
+	$('.svgload').load('svg/svgdefs.html');
 
 	$(window).on("resize", function() {
 		clearTimeout(resizeEvt);
