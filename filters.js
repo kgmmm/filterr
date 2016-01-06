@@ -53,7 +53,7 @@ function resetAll() {
 		window.filters.saturate[2] = window.defaults.saturate;
 		window.filters.sepia[2] = window.defaults.sepia;
 		applyFilter();
-		setCurrent(currentFilter);	
+		setCurrent(currentFilter);
 	} else {
 		return false;
 	}

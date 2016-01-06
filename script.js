@@ -21,7 +21,7 @@ $(function() {
 	$('.imgcanv')[0].width = window.innerWidth;
 	$('.imgcanv')[0].height = window.innerHeight - 150;
 
-	$('.submitload').on('click', loadImg);
+	$('submit.submitload').on('click', loadImg);
 });
 
 function loadImg() {
