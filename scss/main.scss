@@ -274,14 +274,15 @@ div.tools {
       &::after {
         content: attr(title);
         padding: 10px 0;
-        width: 100vw;
+        width: 150px;
         height: auto;
         color: black;
         background: white;
         box-shadow: 0 0 10px rgba(black, 35%);
+        border-radius: 50vw;
         text-align: center;
         position: absolute;
-        top: -200%;
+        top: -210%;
         left: 50%;
         transform: translateX(-50%);
         pointer-events: none;
