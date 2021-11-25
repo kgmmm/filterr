@@ -303,7 +303,7 @@ nav form input[type=file]#filecontrol {
 
 canvas.imgcanv {
   width: 100%;
-  height: calc(100vh - 150px);
+  height: auto;
   position: absolute;
   top: 50px;
   left: 0;
@@ -314,7 +314,7 @@ canvas.imgcanv {
 
 main {
   width: 100%;
-  height: calc(100vh - 150px);
+  height: auto;
   padding: 50px;
   display: -webkit-box;
   display: -ms-flexbox;
