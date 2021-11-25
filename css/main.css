@@ -121,8 +121,12 @@ how to remove the virtical space around the range input in IE*/
           box-sizing: border-box;
 }
 
+html,
 body {
-  min-height: 100vh;
+  min-height: 100%;
+}
+
+body {
   color: var(--color-main);
   background: var(--bg-main);
   font-family: "Montserrat", Sans-Serif;
