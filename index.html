@@ -8,12 +8,10 @@
  </head>
  <body>
   <div class="svgload" style="display: none; height: 0px;"></div>
-  <div class="loader hide"><div class="center"></div></div>
+  <div class="loader hide"></div>
   <nav>
-   <a href="" title="Home" class="btn"><svg><use xlink:href="#homeico" /></svg></a>
    <form action="#" onsubmit="return false;">
-    <input type="file" class="loadimg" />
-    <input type="submit" value="Load Image" class="submitload" />
+    <label for="filecontrol"><svg><use xlink:href="#uploadico" /></svg></label><input type="file" accept="image/*" id="filecontrol" class="loadimg" />
    </form>
   </nav>
 
@@ -24,21 +22,20 @@
   </main>
 
   <div class="controls">
-   <a onclick="resetAll();" title="Reset All" class="resetall"><svg><use xlink:href="#resetico" /></svg></a>
+   <a title="Reset All" data-control="Reset All" class="resetall"><svg><use xlink:href="#resetico" /></svg></a>
    <input type="range" min="0" max="100" class="slider" />
-   <a onclick="resetCurrent($('.slider').attr('data-currentfilter'));" title="Remove Active Filter" class="resetcurrent"><svg><use xlink:href="#xico" /></svg></a>
+   <a title="Reset current" data-control="Reset Current" class="resetcurrent"><svg><use xlink:href="#xico" /></svg></a>
   </div>
 
   <div class="tools">
-   <a onclick="setCurrent('brightness');" title="Brightness" class="tool"><svg><use xlink:href="#brightnessico" /></svg></a>
-   <a onclick="setCurrent('contrast');" title="Contrast" class="tool"><svg><use xlink:href="#contrastico" /></svg></a>
-   <a onclick="setCurrent('grayscale')" title="Grayscale" class="tool"><svg><use xlink:href="#grayscaleico" /></svg></a>
-   <a onclick="setCurrent('hueRotate')" title="Hue-Rotate" class="tool"><svg><use xlink:href="#huerotateico" /></svg></a>
-   <a onclick="setCurrent('invert')" title="Invert" class="tool"><svg><use xlink:href="#invertico" /></svg></a>
-   <a onclick="setCurrent('saturate')" title="Saturate" class="tool"><svg><use xlink:href="#saturateico" /></svg></a>
-   <a onclick="setCurrent('sepia')" title="Sepia" class="tool"><svg><use xlink:href="#sepiaico" /></svg></a>
+   <a title="Brightness" data-tool="brightness" class="tool"><svg><use xlink:href="#brightnessico" /></svg></a>
+   <a title="Contrast" data-tool="contrast" class="tool"><svg><use xlink:href="#contrastico" /></svg></a>
+   <a title="Grayscale" data-tool="grayscale" class="tool"><svg><use xlink:href="#grayscaleico" /></svg></a>
+   <a title="HueRotate" data-tool="hueRotate" class="tool"><svg><use xlink:href="#huerotateico" /></svg></a>
+   <a title="Invert" data-tool="invert" class="tool"><svg><use xlink:href="#invertico" /></svg></a>
+   <a title="Saturate" data-tool="saturate" class="tool"><svg><use xlink:href="#saturateico" /></svg></a>
+   <a title="Sepia" data-tool="sepia" class="tool"><svg><use xlink:href="#sepiaico" /></svg></a>
   </div>
-
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="script.min.js"></script>

@@ -1,368 +1,385 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import "slider.scss";
 
 * {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
-html, body {
-	margin: 0px;
-	padding: 0px;
-	height: 100%;
+html,
+body {
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
 }
 body {
-	color: #000;
-	background: #eee;
-	font-family: Montserrat, Sans-Serif;
+  color: #000;
+  background: #eee;
+  font-family: Montserrat, Sans-Serif;
 }
 a:not([class]) {
-	color: #333;
-	text-decoration: underline;
+  color: #333;
+  text-decoration: underline;
 
-	&:hover {
-		color: #000;
-		text-decoration: none;
-	}
+  &:hover {
+    color: #000;
+    text-decoration: none;
+  }
+}
+
+@keyframes lifeSpan {
+  from {
+    opacity: 1;
+    display: block;
+  }
+  to {
+    opacity: 0;
+    display: none;
+  }
 }
 
 @keyframes loader {
-	0% {
-		transform: translate(-50%, -50%) rotate(0deg) scale(1.05);
-	}
-	50% {
-		transform: translate(-50%, -50%) rotate(180deg) scale(1);
-	}
-	100% {
-		transform: translate(-50%, -50%) rotate(360deg) scale(1.05);
-	}
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
-
-@keyframes left {
-	from {
-		transform: rotate(0deg);
-	}
-	to {
-		transform: rotate(-360deg);
-	}
-}
-@keyframes right {
-	from {
-		transform: rotate(-360deg);
-	}
-	to {
-		transform: rotate(0deg);
-	}
-}
-
 
 div.loader {
-	width: 25%;
-	height: 0px;
-	margin: 0px;
-	padding: 0px;
-	padding-bottom: 25%;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	background: rgba(0, 0, 0, 0.3);
-	box-shadow: 0px 0px 0px 9999px rgba(0, 0, 0, 0.3);
-	border-radius: 50%;
-	z-index: 999;
-	animation: loader 3s linear infinite;
+  width: 150px;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #00b4ff;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 122.88 122.88'%3E%3Cpath d='M57.85,3.61a3.61,3.61,0,1,1,7.21,0V27.45a3.61,3.61,0,0,1-7.21,0V3.61ZM29.42,13.15a3.6,3.6,0,0,1,6.23-3.61L47.57,30.19a3.6,3.6,0,1,1-6.22,3.61L29.42,13.15ZM9.57,35.62a3.59,3.59,0,0,1,3.58-6.22L33.8,41.32a3.59,3.59,0,1,1-3.58,6.22L9.57,35.62ZM3.61,65a3.61,3.61,0,1,1,0-7.21H27.45a3.61,3.61,0,0,1,0,7.21Zm9.54,28.43a3.6,3.6,0,1,1-3.61-6.23L30.19,75.31a3.6,3.6,0,1,1,3.61,6.22L13.15,93.46Zm22.47,19.85a3.59,3.59,0,0,1-6.22-3.58L41.32,89.08a3.59,3.59,0,1,1,6.22,3.58L35.62,113.31Zm29.41,6a3.61,3.61,0,1,1-7.21,0V95.43a3.61,3.61,0,0,1,7.21,0v23.84Zm28.43-9.54a3.6,3.6,0,0,1-6.23,3.61L75.31,92.69a3.6,3.6,0,0,1,6.22-3.61l11.93,20.65Zm19.85-22.47a3.59,3.59,0,0,1-3.58,6.22L89.08,81.56a3.59,3.59,0,1,1,3.58-6.22l20.65,11.92Zm6-29.41a3.61,3.61,0,1,1,0,7.21H95.43a3.61,3.61,0,0,1,0-7.21Zm-9.54-28.43a3.6,3.6,0,0,1,3.61,6.23L92.69,47.57a3.6,3.6,0,0,1-3.61-6.22l20.65-11.93ZM87.26,9.57a3.59,3.59,0,1,1,6.22,3.58L81.56,33.8a3.59,3.59,0,1,1-6.22-3.58L87.26,9.57Z'/%3E%3C/svg%3E");
+  display: block;
+  pointer-events: none;
 
-	&.hide {
-		display: none;
-		animation-play-state: paused;
+  &::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: conic-gradient(
+      from 20deg,
+      transparent 0deg,
+      transparent 5deg,
+      currentColor 360deg
+    );
+    border-radius: 50%;
+    animation: loader 1s infinite linear;
+    animation-play-state: running;
+  }
 
-			&:before, &:after {
-				animation-play-state: paused;
-			}
-		}
+  &.hide {
+    display: none;
 
-	 &:before {
-		content: '';
-		width: 50%;
-		height: 100%;
-		margin: 0px;
-		padding: 0px;
-		position: absolute;
-		left: 0px;
-		z-index: 999;
-		background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 1) 100%);
-		border-radius: 100% 0 0 100% / 50% 0 0 50%;
-		animation: left 1s linear infinite;
-		transform-origin: right center;
-	}
-
-	&:after {
-		content: '';
-		width: 50%;
-		height: 100%;
-		margin: 0px;
-		padding: 0px;
-		position: absolute;
-		right: 0px;
-		z-index: 999;
-		background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 1) 100%);
-		border-radius: 0 100% 100% 0 / 0 50% 50% 0;
-		animation: right 2s linear infinite;
-		transform-origin: left center;
-	}
-
-	& div.center {
-		width: 90%;
-		height: 90%;
-		margin: 0px;
-		padding: 0px;
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		z-index: 1000;
-		background: rgba(0, 0, 0, 0.1);
-		transform: translate(-50%, -50%);
-		border-radius: 50%;
-	}
+    &::before {
+      animation-play-state: paused;
+    }
+  }
 }
 
 nav {
-	width: 100%;
-	height: 50px;
-	margin: 0px;
-	padding: 0px;
-	position: absolute;
-	top: 0px;
-	left: 0px;
-	right: 0px;
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-	background: #fff;
-	border-bottom: solid 2px #ddd;
-	box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
-	perspective: 1000px;
-	z-index: 1;
+  width: 100%;
+  height: 50px;
+  margin: 0px;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  border-bottom: solid 2px #ddd;
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
+  perspective: 1000px;
+  z-index: 1;
 
-	&:before {
-		content: 'FILTERR';
-		width: auto;
-		height: auto;
-		margin: 0px;
-		padding: 0px;
-		font-size: 32px;
-		position: absolute;
-		top: 40%;
-		left: 55px;
-		transform: translateY(-50%);
-		transition: transform 0.6s ease-in-out;
+  &:before {
+    content: "FILTERR";
+    width: auto;
+    height: auto;
+    margin: 0px;
+    padding: 0px;
+    font-size: 32px;
+    position: absolute;
+    top: 40%;
+    left: 10px;
+    transform: translateY(-50%);
+    transition: transform 0.6s ease-in-out;
+  }
 
-		@media (max-width: 550px) {
-			transform: translateY(-50%) rotateX(-90deg);
-		}
-	}
+  &:after {
+    content: "A CSS Experiment";
+    width: auto;
+    height: auto;
+    margin: 0px;
+    padding: 0px;
+    font-size: 9px;
+    position: absolute;
+    top: 90%;
+    left: 57px;
+    transform: translateY(-100%);
+  }
 
-	&:after {
-		content: 'A CSS Experiment';
-		width: auto;
-		height: auto;
-		margin: 0px;
-		padding: 0px;
-		font-size: 9px;
-		position: absolute;
-		top: 90%;
-		left: 57px;
-		transform: translateY(-100%);
-	}
+  & a.btn {
+    width: 50px;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    margin-right: auto;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-right: solid 2px #ddd;
 
-	& a.btn {
-		width: 50px;
-		height: 100%;
-		margin: 0px;
-		padding: 0px;
-		margin-right: auto;
-		display: inline-flex;
-		justify-content: center;
-		align-items: center;
-		border-right: solid 2px #ddd;
+    &:hover {
+      background: rgba(0, 0, 0, 0.1);
+    }
 
-		&:hover {
-			background: rgba(0, 0, 0, 0.1);
-		}
+    & svg {
+      width: 50%;
+      height: 50%;
+      margin: 0px;
+      padding: 0px;
+      fill: #000;
+    }
+  }
 
-		& svg {
-			width: 50%;
-			height: 50%;
-			margin: 0px;
-			padding: 0px;
-			fill: #000;
-		}
-	}
+  & form {
+    margin-left: auto;
+    display: grid;
+    grid-auto-flow: column;
 
-	& form {
-		margin-left: auto;
+    & label[for="filecontrol"] {
+      margin: 0;
+      padding: 0;
+      height: 50px;
+      width: auto;
+      aspect-ratio: 1 / 1;
+      display: grid;
+      grid-auto-flow: column;
+      place-items: center;
+      border-left: solid 2px #ddd;
+      border-right: solid 1px #ddd;
+      cursor: pointer;
 
-		& input {
-			margin: 0px 10px;
-			padding: 0px;
-		}
-	}
+      &:hover {
+        background: rgba(#00b4ff, 0.1);
+      }
+
+      & svg {
+        width: 50%;
+        height: 50%;
+        margin: 0px;
+        padding: 0px;
+        fill: #000;
+      }
+    }
+
+    & input[type="file"]#filecontrol {
+      display: none;
+      pointer-events: none;
+    }
+  }
 }
 
 canvas.imgcanv {
-	width: 100%;
-	height: calc(100vh - 150px);
-	margin: 0px;
-	padding: 0px;
-	position: absolute;
-	top: 50px;
-	left: 0px;
-	right: 0px;
-	bottom: 100px;
-	z-index: 0;
+  width: 100%;
+  height: calc(100vh - 150px);
+  margin: 0px;
+  padding: 0px;
+  position: absolute;
+  top: 50px;
+  left: 0px;
+  right: 0px;
+  bottom: 100px;
+  z-index: 0;
 }
 
 main {
-	width: 100%;
-	height: calc(100vh - 150px);
-	margin: 0px;
-	padding: 50px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-	position: absolute;
-	top: 50px;
-	left: 0px;
-	right: 0px;
-	bottom: 100px;
-	z-index: -1;
+  width: 100%;
+  height: calc(100vh - 150px);
+  margin: 0px;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: absolute;
+  top: 50px;
+  left: 0px;
+  right: 0px;
+  bottom: 100px;
+  z-index: -1;
 
-	&.hasimg {
-		display: none;
-	}
+  &.hasimg {
+    display: none;
+  }
 
-	@media (max-width: 550px) {
-		& h1 {
-			font-size: 28px;
-		}
+  @media (max-width: 550px) {
+    & h1 {
+      font-size: 28px;
+    }
 
-		& h2 {
-			font-size: 16px;
-		}
-	}
+    & h2 {
+      font-size: 16px;
+    }
+  }
 }
 
 div.tools {
-	width: 100%;
-	height: 50px;
-	margin: 0px;
-	padding: 0px;
-	position: absolute;
-	bottom: 0px;
-	left: 0px;
-	right: 0px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background: #fff;
-	border-top: solid 2px #ddd;
-	z-index: 1;
+  width: 100%;
+  height: 50px;
+  margin: 0px;
+  padding: 0px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  border-top: solid 2px #ddd;
+  z-index: 1;
 
-	& a.tool {
-		width: 50px;
-		height: 100%;
-		margin: 0px;
-		padding: 0px;
-		display: inline-flex;
-		justify-content: center;
-		align-items: center;
-		border-left: solid 1px #ddd;
-		border-right: solid 1px #ddd;
-		cursor: pointer;
+  & a.tool {
+    width: 50px;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-left: solid 1px #ddd;
+    border-right: solid 1px #ddd;
+    cursor: pointer;
 
-		&:hover {
-			background: rgba(0, 0, 0, 0.1);
-		}
+    &::after {
+      transform: translateX(-50%);
+    }
 
-		&:first-of-type {
-			border-left: solid 2px #ddd;
-		}
+    &:hover {
+      background: rgba(#00b4ff, 0.1);
 
-		&:last-of-type {
-			border-right: solid 2px #ddd;
-		}
+      &::after {
+        content: attr(title);
+        padding: 10px 0;
+        width: 100vw;
+        height: auto;
+        color: black;
+        background: white;
+        box-shadow: 0 0 10px rgba(black, 35%);
+        text-align: center;
+        position: absolute;
+        top: -200%;
+        left: 50%;
+        transform: translateX(-50%);
+        pointer-events: none;
+        animation: lifeSpan 0.5s linear forwards;
+        animation-delay: 1s;
+      }
+    }
 
-		&.active {
-			background: rgba(0, 0, 0, 0.15);
+    &:first-of-type {
+      border-left: solid 2px #ddd;
+    }
 
-			&:hover {
-				background: rgba(0, 0, 0, 0.1);
-			}
-		}
+    &:last-of-type {
+      border-right: solid 2px #ddd;
+    }
 
-		& svg {
-			width: 50%;
-			height: 50%;
-			margin: 0px;
-			padding: 0px;
-			fill: #000;
-		}
-	}
+    &.active {
+      color: rgba(#00b4ff, 75%);
+      background: radial-gradient(
+        circle at 50% 100%,
+        rgba(#00b4ff, 75%) 0%,
+        rgba(#00b4ff, 75%) 15%,
+        transparent 15.5%,
+        transparent 100%
+      );
+
+      & svg {
+        margin-bottom: 10px;
+      }
+    }
+
+    & svg {
+      width: 50%;
+      height: 50%;
+      margin: 0px;
+      padding: 0px;
+      fill: currentColor;
+    }
+  }
 }
 
 div.controls {
-	width: 100%;
-	height: 50px;
-	margin: 0px;
-	padding: 0px;
-	position: absolute;
-	bottom: 50px;
-	left: 0px;
-	right: 0px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background: #fff;
-	border-top: solid 2px #ddd;
-	box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
-	z-index: 0;
+  width: 100%;
+  height: 50px;
+  margin: 0px;
+  padding: 0px;
+  position: absolute;
+  bottom: 50px;
+  left: 0px;
+  right: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  border-top: solid 2px #ddd;
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
+  z-index: 0;
 
-	& a {
-		width: 50px;
-		height: 100%;
-		margin: 0px;
-		padding: 0px;
-		display: inline-flex;
-		justify-content: center;
-		align-items: center;
-		cursor: pointer;
+  & a {
+    width: 50px;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 
-		&:hover {
-			background: rgba(0, 0, 0, 0.1);
-		}
+    &:hover {
+      background: rgba(0, 0, 0, 0.1);
+    }
 
-		&:first-of-type {
-			border-right: solid 2px #ddd;
-		}
-		&:last-of-type {
-			border-left: solid 2px #ddd;
-		}
+    &:first-of-type {
+      border-right: solid 2px #ddd;
+    }
+    &:last-of-type {
+      border-left: solid 2px #ddd;
+    }
 
-		& svg {
-			width: 50%;
-			height: 50%;
-			margin: 0px;
-			padding: 0px;
-			fill: #000;
-		}
-	}
+    & svg {
+      width: 50%;
+      height: 50%;
+      margin: 0px;
+      padding: 0px;
+      fill: #000;
+    }
 
-	& input[type="range"].slider {
-		width: auto;
-		height: 90%;
-		margin: 0px 20px;
-		padding: 0px;
-		flex: 1;
-	}
+    &.resetcurrent svg {
+      width: 40%;
+      height: 40%;
+    }
+  }
+
+  & input[type="range"].slider {
+    width: auto;
+    height: 90%;
+    margin: 0px 20px;
+    padding: 0px;
+    flex: 1;
+  }
 }
-

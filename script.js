@@ -7,10 +7,12 @@ $(function() {
 		clearTimeout(resizeEvt);
 		resizeEvt = setTimeout(function() {
 			if($('main').hasClass('hasimg')) {
+				saveFilters();
 				$('.imgcanv')[0].width = window.innerWidth;
 				$('.imgcanv')[0].height = window.innerHeight - 150;
 
 				loadImg();
+				loadSaved();
 			} else {
 				$('.imgcanv')[0].width = window.innerWidth;
 				$('.imgcanv')[0].height = window.innerHeight - 150;
@@ -21,7 +23,7 @@ $(function() {
 	$('.imgcanv')[0].width = window.innerWidth;
 	$('.imgcanv')[0].height = window.innerHeight - 150;
 
-	$('.submitload').on('click', loadImg);
+	$('.loadimg').on('change', loadImg);
 });
 
 function loadImg() {
@@ -48,6 +50,7 @@ function loadImg() {
 		alert('Please select a file first!');
 		$('.loader').toggleClass('hide');
 	} else {
+		resetAll();
 		file = input.files[0];
 		fr = new FileReader();
 		fr.onload = createImg;
@@ -58,7 +61,6 @@ function loadImg() {
 		img = new Image();
 		img.onload = imgLoaded;
 		img.src = fr.result;
-		resetAll();
 	}
 
 	function imgLoaded() {
@@ -119,5 +121,5 @@ function loadImg() {
 	}
 }
 
-//@prepros-append filters.js
 
+// @prepros-append filters.js
