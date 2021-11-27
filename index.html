@@ -9,6 +9,16 @@
  <body>
   <div class="svgload" style="display: none; height: 0px;"></div>
   <div class="loader hide"></div>
+  <div class="resetModal hide" id="resetModal">
+    <h2>Are you sure you want to reset all filters?</h2>
+    <button class="modalbtn--no" id="modalbtnY">
+      No
+    </button>
+    <button class="modalbtn--yes" id="modalbtnN">
+      Yes
+    </button>
+  </div>
+  <div class="shadow"></div>
   <nav>
    <form action="#" onsubmit="return false;">
     <label for="filecontrol"><svg><use xlink:href="#uploadico" /></svg></label><input type="file" accept="image/*" id="filecontrol" class="loadimg" />

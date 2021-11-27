@@ -162,6 +162,46 @@ a:not([class]):hover {
     display: none;
   }
 }
+@-webkit-keyframes modalEnter {
+  from {
+    -webkit-transform: translate(-50%, -45%);
+            transform: translate(-50%, -45%);
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+@keyframes modalEnter {
+  from {
+    -webkit-transform: translate(-50%, -45%);
+            transform: translate(-50%, -45%);
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 @-webkit-keyframes loader {
   from {
     -webkit-transform: rotate(0deg);
@@ -214,6 +254,85 @@ div.loader.hide {
 div.loader.hide::before {
   -webkit-animation-play-state: paused;
           animation-play-state: paused;
+}
+
+div.resetModal {
+  width: 250px;
+  height: 180px;
+  background: var(--bg-main);
+  border-radius: 10px;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  grid-auto-flow: row;
+  -ms-grid-rows: 1fr 45px;
+  grid-template-rows: 1fr 45px;
+      grid-template-areas: "t t" "n y";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 999;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  overflow: hidden;
+  pointer-events: auto;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-animation: modalEnter 0.3s ease-out forwards;
+          animation: modalEnter 0.3s ease-out forwards;
+}
+div.resetModal.hide {
+  display: none;
+  pointer-events: none;
+  -webkit-animation: none;
+          animation: none;
+}
+div.resetModal.hide + div.shadow {
+  display: none;
+  pointer-events: none;
+  -webkit-animation: none;
+          animation: none;
+}
+div.resetModal h2 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  margin: 10px 20px;
+  font-size: 1.2em;
+  grid-area: t;
+}
+div.resetModal button {
+  width: 100%;
+  height: 100%;
+  border: none;
+  color: white;
+  background: rgba(0, 0, 0, 0.1);
+  font-size: 1em;
+  font-weight: 700;
+  cursor: pointer;
+}
+div.resetModal button.modalbtn--no {
+  background: -webkit-gradient(linear, left bottom, left top, from(#8f1616), to(#e03030));
+  background: linear-gradient(to top, #8f1616 0%, #e03030 100%);
+}
+div.resetModal button.modalbtn--yes {
+  background: -webkit-gradient(linear, left bottom, left top, from(#1ea81e), to(#3ff03f));
+  background: linear-gradient(to top, #1ea81e 0%, #3ff03f 100%);
+}
+
+div.shadow {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 998;
+  -webkit-animation: fadeIn 0.3s ease-out forwards;
+          animation: fadeIn 0.3s ease-out forwards;
 }
 
 nav {
