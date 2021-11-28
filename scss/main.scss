@@ -11,6 +11,16 @@
   --color-link: #333;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --border-grey: #202838;
+    --bg-white: #0e1014;
+    --bg-main: #1d1f24;
+    --color-main: #fbfbfb;
+    --color-link: #b3b3b3;
+  }
+}
+
 *,
 *::before,
 *::after {
