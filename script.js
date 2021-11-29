@@ -3,6 +3,14 @@ $(function() {
 
 	$('.svgload').load('svg/svgdefs.html');
 
+	const currentTheme = localStorage.getItem('theme');
+	if (currentTheme == 'dark') {
+		document.body.classList.add("darktheme");
+		$('.darkswitch').toggleClass('light');
+	} else if (currentTheme == 'light') {
+		document.body.classList.remove('darktheme');
+	}
+
 	$(window).on("resize", function() {
 		clearTimeout(resizeEvt);
 		resizeEvt = setTimeout(function() {
@@ -24,6 +32,8 @@ $(function() {
 	$('.imgcanv')[0].height = window.innerHeight - 150;
 
 	$('.loadimg').on('change', loadImg);
+
+	$('.darkswitch').on('click', darkSwitch);
 });
 
 function loadImg() {
@@ -119,6 +129,17 @@ function loadImg() {
 			}
 		}
 	}
+}
+
+function darkSwitch() {
+	$(this).toggleClass('light');
+	$('body').toggleClass('darktheme');
+
+	var theme = document.body.classList.contains('darktheme')
+	? 'dark'
+	: 'light';
+
+	localStorage.setItem('theme', theme);
 }
 
 
